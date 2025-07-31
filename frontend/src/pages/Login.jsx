@@ -1,41 +1,45 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import "./Login.css";
 
-export default function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+function Login() {
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Simulate login
+  const [email, setEmail]=useState("");
+  const [password, setPassword]=useState("");
+
+  const handleSubmit=(e)=>{
+    e.preventDefault(); // prevents page reload
     console.log("Email:", email);
     console.log("Password:", password);
-    alert("Logged in (mock)");
+    // Here you would usually call an API to log in
   };
 
   return (
-    <div style={{ padding: "2rem" }}>
+
+    <div className="login-container">
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label>Email:</label><br />
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-        <div style={{ marginTop: "1rem" }}>
-          <label>Password:</label><br />
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit" style={{ marginTop: "1rem" }}>Login</button>
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+
+        <button type="submit">Log In</button>
       </form>
     </div>
+
   );
-}
+
+  
+}export default Login;
+
