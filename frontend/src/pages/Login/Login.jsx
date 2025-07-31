@@ -8,9 +8,16 @@ function Login() {
 
   const handleSubmit=(e)=>{
     e.preventDefault(); // prevents page reload
-    console.log("Email:", email);
-    console.log("Password:", password);
-    // Here you would usually call an API to log in
+
+    if (email==="admin@example.com" && password==="123456") {
+      
+      alert("Login successful");
+
+    }else{
+
+      alert("Invalid email or password");
+    }
+    
   };
 
   return (
